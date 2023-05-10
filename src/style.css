@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --c-count: 1;
+}
+
+.demo--active {
+  position: relative;
+}
+
+body {
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-family: Poppins, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
+}
+
+.list {
+  margin-left: 17px;
+}
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin-top: 20px;
+  display: grid;
+  gap: 16px;
+  width: 100%;
+  grid-template-columns: repeat(var(--c-count), minmax(0, 1fr));
+}
+
+/* Add padding BETWEEN each column */
+.row > .column {
+  /* padding: 0 8px; */
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  display: block;
+  /* float: left; */
+  width: 100%;
+  color: currentColor;
+  text-decoration: none;
+}
+
+.column:hover h3 {
+  text-decoration: underline;
+}
+
+.objective {
+  height: min(30vw, 100px);
+  width: min(30vw, 100px);
+  /* object-fit: cover; */
+  border-radius: 50%;
+  object-fit: 200% 200%;
+}
+
+/* Preview */
+.preview {
+  color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  background-color: #333;
+  margin-bottom: 10px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (min-width: 600px) {
+  :root {
+    --c-count: 2;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (min-width: 900px) {
+  :root {
+    --c-count: 3;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.demo {
+  position: relative;
+}
+
+.img-zoom-lens {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  /*set the size of the lens:*/
+  width: 40px;
+  height: 40px;
+}
+
+.preview {
+  border: 1px solid #d4d4d4;
+  /*set the size of the result div:*/
+  width: 100%;
+  aspect-ratio: 1/1;
+
+  max-width: 300px;
+}
+
+.img-magnifier-glass {
+  position: absolute;
+  border: 3px solid #000;
+  border-radius: 50%;
+  cursor: none;
+  /*Set the size of the magnifier glass:*/
+  width: 200px;
+  height: 200px;
+}
