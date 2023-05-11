@@ -137,16 +137,24 @@ function imageZoom(maginfySize) {
   lens.addEventListener("touchmove", moveLens);
   img.addEventListener("touchmove", moveLens);
 
-  window.addEventListener("resize", function () {
-    lens.style.height = baseSizeCalc(img) + "px";
-    lens.style.width = baseSizeCalc(img) + "px";
+  if (
+    !(
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0 ||
+      navigator.msMaxTouchPoints > 0
+    )
+  ) {
+    window.addEventListener("resize", function () {
+      lens.style.height = baseSizeCalc(img) + "px";
+      lens.style.width = baseSizeCalc(img) + "px";
 
-    cx = result.offsetWidth / lens.offsetWidth;
-    cy = result.offsetHeight / lens.offsetHeight;
-    result.style.backgroundImage = "url('" + img.src + "')";
-    result.style.backgroundSize =
-      img.width * cx + "px " + img.height * cy + "px";
-  });
+      cx = result.offsetWidth / lens.offsetWidth;
+      cy = result.offsetHeight / lens.offsetHeight;
+      result.style.backgroundImage = "url('" + img.src + "')";
+      result.style.backgroundSize =
+        img.width * cx + "px " + img.height * cy + "px";
+    });
+  }
 
   function moveLens(e) {
     var pos, x, y;

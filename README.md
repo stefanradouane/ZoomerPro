@@ -1,10 +1,30 @@
-# :bust_in_silhouette: HCD-Repo
+# :bust_in_silhouette: Zoomer Pro <em>voor Eric</em>
+
+<p style="width:300px; text-align:center;">
+<img src="docs/image.png" style="width:300px" >
+</p>
 
 Repository voor het vak 👤 Human Centered Design. Dit vak is onderdeel van de minor Web Design &amp; Development.
 
 Stefan Radouane
 
 April 2023
+
+## Onderzoeksvraag
+
+Body language in chat apps.
+
+## Probleemdefinitie
+
+Schrijf hier wat het probleem is
+
+## Oplossing
+
+Schrijf hier hoe jij het probleem hebt opgelost, hoe werkt jouw prototype?
+
+## Link prototype
+
+[Link naar prototype](https://stefanradouane.github.io/hcd-repo/)
 
 ## :memo: Inhoudsopgave
 
