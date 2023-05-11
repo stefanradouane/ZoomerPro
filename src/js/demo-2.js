@@ -15,7 +15,7 @@ function baseSizeCalc(element) {
 }
 
 // On input
-if (inputs) {
+if (inputs.length >= 1) {
   inputs.forEach((input) => {
     input.addEventListener("input", (e) => {
       const [file] = input.files;
@@ -32,74 +32,78 @@ if (inputs) {
       }
     });
   });
-}
 
-document.addEventListener("keydown", async (e) => {
-  // e.preventDefault();
-  // console.log(e.clipboardData);
-  // console.log(navigator.clipboard.read());
-  if (e.key == "v") {
-    try {
-      const permission = await navigator.permissions.query({
-        name: "clipboard-read",
-      });
-      if (permission.state === "denied") {
-        throw new Error("Not allowed to read clipboard.");
-      }
-      const clipboardContents = await navigator.clipboard.read();
-      for (const item of clipboardContents) {
-        if (!item.types.includes("image/png")) {
-          throw new Error("Clipboard contains non-image data.");
+  document.addEventListener("keydown", async (e) => {
+    console.log(e.key);
+    if (e.key == "v") {
+      try {
+        const permission = await navigator.permissions.query({
+          name: "clipboard-read",
+        });
+        if (permission.state === "denied") {
+          throw new Error("Not allowed to read clipboard.");
         }
-        const blob = await item.getType("image/png");
-        console.log(blob);
-        img.src = URL.createObjectURL(blob);
-        content.removeAttribute("hidden");
-        headerinput.removeAttribute("hidden");
-        inputfield.setAttribute("hidden", "");
-        img.onload = function () {
-          document.querySelector(".img-zoom-lens")?.remove();
+        const clipboardContents = await navigator.clipboard.read();
+        for (const item of clipboardContents) {
+          if (!item.types.includes("image/png")) {
+            throw new Error("Clipboard contains non-image data.");
+          }
+          const blob = await item.getType("image/png");
+          console.log(blob);
+          img.src = URL.createObjectURL(blob);
+          content.removeAttribute("hidden");
+          headerinput.removeAttribute("hidden");
+          inputfield.setAttribute("hidden", "");
+          img.onload = function () {
+            document.querySelector(".img-zoom-lens")?.remove();
 
-          imageZoom();
-        };
+            imageZoom();
+          };
+        }
+      } catch (error) {
+        console.error(error.message);
       }
-    } catch (error) {
-      console.error(error.message);
+    } else if (e.key == "+" || e.key == "=") {
+      zoomFunc("plus");
+    } else if (e.key == "-") {
+      zoomFunc("minus");
     }
-  }
-});
+  });
+} else {
+  imageZoom();
+}
 
 if (btn) {
   btn.forEach((btn) => {
-    console.log(btn);
-
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       const maginfier = e.target.dataset.maginfier;
-      let maginfySize;
-      const currentWidth = getComputedStyle(
-        document.querySelector(".img-zoom-lens")
-      ).width;
-
-      if (
-        maginfier == "minus" &&
-        !(parseFloat(currentWidth) >= baseSizeCalc(img))
-      )
-        maginfySize = parseFloat(currentWidth) + increments;
-      else if (
-        maginfier == "plus" &&
-        !(parseFloat(currentWidth) - increments <= 10)
-      )
-        maginfySize = parseFloat(currentWidth) - increments;
-      else return;
-
-      document.querySelector(".img-zoom-lens").remove();
-      imageZoom(maginfySize);
+      zoomFunc(maginfier);
     });
   });
 }
 
-// imageZoom();
+function zoomFunc(maginfier) {
+  let maginfySize;
+  const currentWidth = getComputedStyle(
+    document.querySelector(".img-zoom-lens")
+  ).width;
+
+  if (
+    maginfier == "minus" &&
+    !(parseFloat(currentWidth) >= baseSizeCalc(img) - 20)
+  )
+    maginfySize = parseFloat(currentWidth) + increments;
+  else if (
+    maginfier == "plus" &&
+    !(parseFloat(currentWidth) - increments <= 20)
+  )
+    maginfySize = parseFloat(currentWidth) - increments;
+  else return;
+
+  document.querySelector(".img-zoom-lens").remove();
+  imageZoom(maginfySize);
+}
 
 function imageZoom(maginfySize) {
   var lens, cx, cy;

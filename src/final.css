@@ -145,11 +145,28 @@ main {
   transition: all 0.2s ease-in-out;
 }
 
+.inputfield .header {
+  font-size: 24px;
+  font-weight: bold;
+}
+
 .controls {
   grid-area: controls;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
+}
+
+.controls section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.controls .explain {
+  display: flex;
+  justify-content: space-between;
+  width: 50px;
 }
 
 .demo {
@@ -168,16 +185,16 @@ main {
   /* height: 50px; */
 }
 
-@media (max-width: 420px) {
-  .headerinput {
+@media (max-width: 500px) {
+  .headerinput label {
     width: 55px;
     height: 55px;
     display: flex !important;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
   }
-  .headerinput span {
+  .headerinput label span {
     display: none;
   }
 }
@@ -206,9 +223,15 @@ main {
     grid-template-areas: "preview demo" "preview controls";
   }
 
-  .controls {
+  .controls,
+  .controls section {
     flex-direction: row;
-    /* order: -1; */
+    align-items: center;
+  }
+
+  .controls .explain {
+    margin: 0;
+    gap: 5px;
   }
 
   .controls .btn:nth-child(2) {
@@ -235,6 +258,17 @@ main {
     max-width: 1282px;
     margin: auto;
   }
+}
+
+.headerinput {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerinput .explain {
+  margin: 0;
 }
 
 [hidden] {
