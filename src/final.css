@@ -1,0 +1,262 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  color-scheme: light dark;
+  --c-count: 1;
+  --base-offset: 16px;
+  --prim-color: #771ce0;
+}
+
+body {
+  font-family: Poppins, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
+  /* background-color: #f1f1f1; */
+}
+
+header {
+  padding: 16px var(--base-offset) 16px;
+  position: sticky;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  /* background-color: #333; */
+  z-index: 20;
+  top: 0;
+
+  gap: 10px;
+
+  /* padding: 16px max(16px, calc(var(--base-offset) / 2)); */
+}
+
+h1 {
+  font-size: 25px;
+  line-height: 1em;
+
+  /* word-break: break-all; */
+}
+
+h1 span {
+  font-size: 16px;
+
+  font-style: italic;
+  font-weight: 100;
+  line-height: 1em;
+}
+
+main {
+  padding: 0 var(--base-offset) 20px;
+  /* height: calc(100dvh - 57px); */
+  /* max-width: 1000px; */
+  /* margin: auto; */
+}
+
+.content {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 10px;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.content > section:first-of-type {
+  max-width: 500px;
+  width: 100%;
+  aspect-ratio: 1/1;
+  /* height: 100%; */
+  height: fit-content;
+  /* position: sticky; */
+  /* top: 67px; */
+  /* z-index: 10; */
+}
+
+.content > section:nth-of-type(2) {
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  gap: 10px;
+  justify-content: center;
+}
+
+.objective {
+  height: min(30vw, 100px);
+  width: min(30vw, 100px);
+  border-radius: 50%;
+  object-fit: 200% 200%;
+}
+
+/* Preview */
+.preview {
+  color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  background-color: #333;
+  background-repeat: no-repeat;
+  /*set the size of the result div:*/
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+
+.final .demo {
+  max-width: min(calc(100% - 60px), 340px);
+}
+
+.demo__image {
+  display: block;
+}
+
+.explain {
+  color: #666;
+  margin-bottom: 20px;
+  /* font-style: italic; */
+}
+
+.explain span {
+  background-color: #666;
+  color: #f7fafc;
+
+  border: 1px solid #f7fafc;
+  border-radius: 0.25rem;
+  padding: 0.2rem 0.4rem;
+}
+
+.btn {
+  appearance: none;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  padding: 16px;
+  border-radius: 4px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+.controls {
+  grid-area: controls;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.demo {
+  position: relative;
+  grid-area: demo;
+}
+
+.img-zoom-lens {
+  position: absolute;
+  border: 5px solid white;
+  mix-blend-mode: exclusion;
+  /*set the size of the lens:*/
+  /* width: 100%; */
+  /* height: 100%; */
+  /* aspect-ratio: 1/1; */
+  /* height: 50px; */
+}
+
+@media (max-width: 420px) {
+  .headerinput {
+    width: 55px;
+    height: 55px;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .headerinput span {
+    display: none;
+  }
+}
+
+@media (min-width: 800px) {
+  header {
+    background-color: transparent;
+  }
+  .final .demo {
+    max-width: 100%;
+  }
+
+  .content > section:first-of-type {
+    max-width: unset;
+  }
+
+  .content > section:nth-of-type(2) {
+    justify-content: unset;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+    grid-template-rows: auto 1fr;
+    gap: 16px;
+    grid-template-areas: "preview demo" "preview controls";
+  }
+
+  .controls {
+    flex-direction: row;
+    /* order: -1; */
+  }
+
+  .controls .btn:nth-child(2) {
+    order: -1;
+  }
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (min-width: 600px) {
+  :root {
+    --c-count: 2;
+    --base-offset: 24px;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (min-width: 900px) {
+  :root {
+    --c-count: 3;
+    --base-offset: 84px;
+  }
+
+  main {
+    max-width: 1282px;
+    margin: auto;
+  }
+}
+
+[hidden] {
+  display: none !important;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 14px;
+  cursor: pointer;
+}
+
+.inputfield {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: calc(100dvh - 157px);
+  align-items: center;
+  justify-content: center;
+}

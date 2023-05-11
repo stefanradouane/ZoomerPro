@@ -6,6 +6,8 @@
 
 :root {
   --c-count: 1;
+
+  --base-offset: 16px;
 }
 
 .demo--active {
@@ -14,7 +16,7 @@
 
 body {
   background-color: #f1f1f1;
-  padding: 20px;
+  padding: 20px var(--base-offset);
   font-family: Poppins, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
     sans-serif;
 }
@@ -30,7 +32,7 @@ body {
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 34px;
   word-break: break-all;
 }
 
@@ -82,26 +84,6 @@ h1 {
   margin-bottom: 10px;
 }
 
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (min-width: 600px) {
-  :root {
-    --c-count: 2;
-  }
-}
-
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (min-width: 900px) {
-  :root {
-    --c-count: 3;
-  }
-
-  body {
-    padding: 20px 84px;
-    max-width: 1282px;
-    margin: auto;
-  }
-}
-
 .final {
   height: 100dvh;
 }
@@ -112,10 +94,20 @@ h1 {
 
 .content {
   display: grid;
-  grid-template-columns: 5fr 3fr;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "preview preview" "controls demo";
   grid-template-rows: auto 1fr;
-  gap: 16px;
-  grid-template-areas: "preview demo" "preview controls";
+  gap: 10px;
+}
+
+@media (min-width: 800px) {
+  .content {
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+    grid-template-rows: auto 1fr;
+    gap: 16px;
+    grid-template-areas: "preview demo" "preview controls";
+  }
 }
 
 .btn {
@@ -135,6 +127,9 @@ h1 {
 
 .controls {
   grid-area: controls;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .demo {
@@ -168,4 +163,36 @@ h1 {
   /*Set the size of the magnifier glass:*/
   width: 200px;
   height: 200px;
+}
+
+.final .demo {
+  max-width: calc(100vmin - calc(var(--base-offset) * 2));
+  /* margin: auto; */
+}
+
+@media (min-width: 800px) {
+  .final .demo {
+    max-width: 100%;
+  }
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (min-width: 600px) {
+  :root {
+    --c-count: 2;
+    --base-offset: 24px;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (min-width: 900px) {
+  :root {
+    --c-count: 3;
+    --base-offset: 84px;
+  }
+
+  body {
+    max-width: 1282px;
+    margin: auto;
+  }
 }
