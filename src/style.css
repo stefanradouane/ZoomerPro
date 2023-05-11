@@ -94,22 +94,60 @@ h1 {
   :root {
     --c-count: 3;
   }
+
+  body {
+    padding: 20px 84px;
+    max-width: 1282px;
+    margin: auto;
+  }
 }
 
-* {
-  box-sizing: border-box;
+.final {
+  height: 100dvh;
+}
+
+.final #image {
+  /* height: 100%; */
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 5fr 3fr;
+  grid-template-rows: auto 1fr;
+  gap: 16px;
+  grid-template-areas: "preview demo" "preview controls";
+}
+
+.btn {
+  appearance: none;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  padding: 16px;
+  border-radius: 4px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+.controls {
+  grid-area: controls;
 }
 
 .demo {
   position: relative;
+  grid-area: demo;
 }
 
 .img-zoom-lens {
   position: absolute;
-  border: 1px solid #d4d4d4;
+  border: 5px solid #d4d4d4;
   /*set the size of the lens:*/
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 }
 
 .preview {
@@ -117,8 +155,9 @@ h1 {
   /*set the size of the result div:*/
   width: 100%;
   aspect-ratio: 1/1;
+  grid-area: preview;
 
-  max-width: 300px;
+  /* max-width: 300px; */
 }
 
 .img-magnifier-glass {

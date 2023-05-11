@@ -4,15 +4,17 @@ function imageZoom(imgID, resultID) {
   var img, lens, result, cx, cy;
   img = document.getElementById(imgID);
   result = document.getElementById(resultID);
-  console.log(img, result);
+
   /* Create lens: */
-  lens = document.createElement("DIV");
-  lens.setAttribute("class", "img-zoom-lens");
+  lens = Object.assign(document.createElement("div"), {
+    classList: ["img-zoom-lens"],
+  });
   /* Insert lens: */
   img.parentElement.insertBefore(lens, img);
   /* Calculate the ratio between result DIV and lens: */
   cx = result.offsetWidth / lens.offsetWidth;
   cy = result.offsetHeight / lens.offsetHeight;
+
   /* Set background properties for the result DIV */
   result.style.backgroundImage = "url('" + img.src + "')";
   result.style.backgroundSize = img.width * cx + "px " + img.height * cy + "px";
@@ -22,6 +24,14 @@ function imageZoom(imgID, resultID) {
   /* And also for touch screens: */
   lens.addEventListener("touchmove", moveLens);
   img.addEventListener("touchmove", moveLens);
+  window.addEventListener("resize", function () {
+    cx = result.offsetWidth / lens.offsetWidth;
+    cy = result.offsetHeight / lens.offsetHeight;
+    result.style.backgroundImage = "url('" + img.src + "')";
+    result.style.backgroundSize =
+      img.width * cx + "px " + img.height * cy + "px";
+  });
+
   function moveLens(e) {
     var pos, x, y;
     /* Prevent any other actions that may occur when moving over the image */
