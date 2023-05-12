@@ -91,6 +91,44 @@ Ik heb deze bevindingen gebruikt om de uiteindelijke app te maken. Het doel van 
 
 <img src="docs/app.png">
 
+## 👤 User scenario
+
+### Wie is Eric?
+
+Eric is 50 jaar oud en werkt op de HvA en als toegankelijkheidsmedewerker. Eric heeft moeite met foto's in en uitzoomen, daarom heb ik een app gemaakt waarmee hij foto's kan in- en uitzoomen. Vanwege zijn beperkte armgebruik heeft hij vaak problemen om het in- en uitzoomen op het scherm. De app die ik voor hem heb ontworpen stelt hem in staat om gemakkelijker foto's in- en uit te zoomen door een slider over een foto heen te slepen.
+
+### Wat wil Eric op onze website?
+
+Eric wil op de website foto's in- en uitzoomen. Hij wil dit doen door een slider over de foto heen te slepen. Hij wil ook een foto kunnen toevoegen vanuit zijn bestanden of vanuit zijn klembord. Eric wil de grootte van de slider kunnen aanpassen door op de `+` of `-` te drukken op zijn toetsenbord of door de knoppen in te drukken. Daarnaast wil hij ook de grootte van de slider kunnen aanpassen door op de knoppen te drukken.
+
+### Hoe gaat Eric de site gebruiken.
+
+Eric is thuis en ziet een foto. Hij wilt eigenlijk graag zien wat er in het hoekje onder op de foto staat. Inzoomen met gestures is vrij lastig voor Eric. Hij bedenkt zich daarom dat hij de foto kan bekijken met de 'Zoomer Pro voor Eric'. Hij plaatst de foto in de app en kan zo gemakkelijk met een slider over de foto heen bewegen. Hij kan de zoomer pro in een tablat open houden en zo gemakkelijk toevoegen om in in- en uit te zoomen.
+
+## 📐 Inclusive Design principles
+
+### Study situation:
+
+Hij moet zijn telefoon op de tafel leggen. Het is niet mogelijk voor Erik om zijn mobiel in zijn hand te houden en een foto tegelijkertijd in- en uitzoomen. Om te typen gebruikt hij een pen. Hij kan ook zonder pen typen, maar dan duurt het allemaal wat langer. Hij gebruikt zijn rechterhand om te typen. Hij prefereert desktop als hij thuis is, daar gebruikt hij een desktop met een groot monitor dat up-to-date is met de laatste ontwikkelingen van de browser (Google Chrome).
+
+### Prioritise identity:
+
+<b>Help users focus on core tasks, features, and information by prioritising them within the content and layout.</b>
+
+Omdat hij dus zelf moeite heeft met het in- en uitzoomen van foto's. Het is daarom mogelijk om de foto in en uit te zoomen met het toetsen bord. Daarnaast kan een foto toegevoegd worden vanuit de bestanden of van het klembord. Dit is mogelijk door op de `v` te drukken als de foto is gekopieerd. De enige knoppen die er zijn, zijn de knoppen die nodig zijn om de app te gebruiken. De knoppen zijn dus niet overbodig.
+
+### Ignore conventions:
+
+Use familiar conventions and apply them consistently. If you have a convention that works very well in all different contexts, you should use it consistently. Inconsistency can confuse people.
+
+Net zoals bij het in en uitzoomen van een foto op android devices is er soort van slider op de foto geplaatst. Eric kan op deze wijze zien waar hij op de foto aan het sliden is. Daarnaast is de slider ook te bedienen met een stylus pen. Dit is een bekend hulpmiddel voor mensen met een beperkte armgebruik.
+
+### Add nonsense:
+
+Consider the value of features and how they improve the experience for different users
+
+Alle features zijn van belang en dus nodig. De app is niet te gebruiken zonder de features. De features zijn dus niet overbodig.
+
 ---
 
 Stefan Radouane
