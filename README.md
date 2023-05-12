@@ -121,7 +121,7 @@ Omdat hij dus zelf moeite heeft met het in- en uitzoomen van foto's. Het is daar
 
 Use familiar conventions and apply them consistently. If you have a convention that works very well in all different contexts, you should use it consistently. Inconsistency can confuse people.
 
-Net zoals bij het in en uitzoomen van een foto op android devices is er soort van slider op de foto geplaatst. Eric kan op deze wijze zien waar hij op de foto aan het sliden is. Daarnaast is de slider ook te bedienen met een stylus pen. Dit is een bekend hulpmiddel voor mensen met een beperkte armgebruik.
+Net zoals bij het in en uitzoomen van een foto op android devices is er soort van slider op de foto geplaatst. Eric kan op deze wijze zien waar hij op de foto aan het sliden is. Daarnaast is de slider ook te bedienen met een stylus pen. Dit is een bekend hulpmiddel voor mensen met een beperkte armgebruik. Ik heb gekozen om van de convention van `cmd` of `crtl` + `v` af te stappen en om alleen een `v` te gebruiken. Dit heb ik gedaan, omdat dit gemakkelijker is voor Eric om iets te plakken op deze wijze. Daarnaast heb ik ook gekozen om de knoppen `+` en `-` te gebruiken om de slider te vergroten of te verkleinen. Dit is een bekende conventie voor het vergroten en verkleinen van iets.
 
 ### Add nonsense:
 
